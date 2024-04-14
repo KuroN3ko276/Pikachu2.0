@@ -1,19 +1,23 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BreadthFirstSearch : AbstractPathfinding
 {
     [Header("Breadth First Search")]
     public GridManagerCtrl ctrl;
-    public List<Node> queue = new List<Node>();
+    //public List<Node> queue = new List<Node>();
+    public Queue<Node> queue = new Queue<Node>();
     public List<Node> finalPath = new List<Node>();
     public List<NodeStep> cameFromNodes = new List<NodeStep>();
     public List<Node> visited = new List<Node>();
+    public LineRenderer lineRenderer;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadCtrl();
+        this.LoadLineRenderer();
     }
 
     protected virtual void LoadCtrl()
@@ -23,9 +27,20 @@ public class BreadthFirstSearch : AbstractPathfinding
         Debug.LogWarning(transform.name + " LoadCtrl", gameObject);
     }
 
-    public override void DataReset()
+    protected virtual void LoadLineRenderer()
     {
-        this.queue = new List<Node>();
+        if(this.lineRenderer != null) return;
+        this.lineRenderer = transform.GetComponent<LineRenderer>();
+		Debug.LogWarning(transform.name + " LoadLineRenderer", gameObject);
+	}
+	public override LineRenderer GetLineRenderer()
+	{
+		return lineRenderer;
+	}
+
+	public override void DataReset()
+    {
+        this.queue = new Queue<Node>();
         this.finalPath = new List<Node>();
         this.cameFromNodes = new List<NodeStep>();
         this.visited = new List<Node>();
@@ -37,7 +52,8 @@ public class BreadthFirstSearch : AbstractPathfinding
         Node startNode = startBlock.blockData.node;
         Node targetNode = targetBlock.blockData.node;
 
-        this.Enqueue(startNode);
+        //this.Enqueue(startNode);'
+        this.queue.Enqueue(startNode);
         this.cameFromNodes.Add(new NodeStep(startNode, startNode));
         this.visited.Add(startNode);
 
@@ -45,7 +61,8 @@ public class BreadthFirstSearch : AbstractPathfinding
         List<NodeStep> steps;
         while (this.queue.Count > 0)
         {
-            Node current = this.Dequeue();
+            //Node current = this.Dequeue();
+            Node current = this.queue.Dequeue();
 
             if (current == targetNode)
             {
@@ -69,12 +86,12 @@ public class BreadthFirstSearch : AbstractPathfinding
                 nodeStep.changeDirectionCount = this.CountDirectionFrom2Nodes(neighbor, startNode);
                 if (nodeStep.changeDirectionCount > 3) continue;
 
-                this.Enqueue(neighbor);
+                //this.Enqueue(neighbor);
+                this.queue.Enqueue(neighbor);
             }
 
         }
 
-        //this.ShowVisited();
         this.ShowPath();
 
         return this.IsPathFound();
@@ -123,28 +140,35 @@ public class BreadthFirstSearch : AbstractPathfinding
         return this.cameFromNodes.Find(item => item.toNode == toNode);
     }
 
+    //Spawn đường đi giữa 2 đối tượng có thể ăn
     protected virtual void ShowPath()
     {
+        //lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = true;
+        List<Vector3> listPoint = new List<Vector3>(); 
         Vector3 pos;
         foreach (Node node in this.finalPath)
         {
             pos = node.nodeObj.transform.position;
-            Transform linker = this.ctrl.blockSpawner.Spawn(BlockSpawner.LINKER, pos, Quaternion.identity);
-            linker.gameObject.SetActive(true);
+            listPoint.Add(pos);
+            //Transform linker = this.ctrl.blockSpawner.Spawn(BlockSpawner.LINKER, pos, Quaternion.identity);
+            //linker.gameObject.SetActive(true);
         }
-    }
+		lineRenderer.positionCount = listPoint.Count;
+		lineRenderer.SetPositions(listPoint.ToArray<Vector3>());
+	}
 
-    protected virtual void Enqueue(Node blockCtrl)
-    {
-        this.queue.Add(blockCtrl);
-    }
+    //protected virtual void Enqueue(Node blockCtrl)
+    //{
+    //    this.queue.Add(blockCtrl);
+    //}
 
-    protected virtual Node Dequeue()
-    {
-        Node node = this.queue[0];
-        this.queue.RemoveAt(0);
-        return node;
-    }
+    //protected virtual Node Dequeue()
+    //{
+    //    Node node = this.queue[0];
+    //    this.queue.RemoveAt(0);
+    //    return node;
+    //}
 
     private bool IsValidPosition(Node node, Node startNode)
     {

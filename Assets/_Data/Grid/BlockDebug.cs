@@ -74,14 +74,12 @@ public class BlockDebug : GridAbstract
         Debug.Log("blockCtrl: " + firstBlock.blockData.node.Name());
         Debug.Log("sameBlock: " + secondBlock.blockData.node.Name());
 
-        if (firstBlock.blockData.node.occupied == false
-            || secondBlock.blockData.node.occupied == false)
+        if (firstBlock.blockData.node.occupied == false || secondBlock.blockData.node.occupied == false)
         {
             Debug.Log("No more Move");
 
             return;
         }
-
 
         GridManagerCtrl.Instance.blockHandler.SetNode(firstBlock);
         GridManagerCtrl.Instance.blockHandler.SetNode(secondBlock);

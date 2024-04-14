@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,9 +33,9 @@ public class GridSystem : GridAbstract
         this.SpawnNodeObj();
         this.SpawnBlocks();
         this.FindNodesNeighbors();
-        this.FindBlocksNeighbors();
+        //this.FindBlocksNeighbors();
     }
-
+    //Tìm kiếm các Node kề với Node hiện tại
     protected virtual void FindNodesNeighbors()
     {
         int x, y;

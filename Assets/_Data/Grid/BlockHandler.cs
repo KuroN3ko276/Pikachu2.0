@@ -30,18 +30,32 @@ public class BlockHandler : GridAbstract
         chooseObj = this.ctrl.blockSpawner.Spawn(BlockSpawner.CHOOSE, pos, Quaternion.identity);
         chooseObj.gameObject.SetActive(true);
 
-        if (this.firstBlock != this.lastBlock
-            && this.firstBlock.blockID == this.lastBlock.blockID)
+        if (this.firstBlock != this.lastBlock && this.firstBlock.blockID == this.lastBlock.blockID)
         {
             bool isPathFound = this.ctrl.pathfinding.FindPath(this.firstBlock, this.lastBlock);
             if (isPathFound) this.FreeBlocks();
         }
-
-        this.firstBlock = null;
+		Invoke(nameof(this.ClearScreen), 0.2f);
+		this.firstBlock = null;
         this.lastBlock = null;
     }
 
-    protected virtual bool IsBlockRemoved(BlockCtrl blockCtrl)
+	public virtual void ClearScreen()
+	{
+		List<string> names = new List<string>();
+		names.Add(BlockSpawner.LINKER);
+		names.Add(BlockSpawner.SCAN);
+		names.Add(BlockSpawner.SCAN_STEP);
+		names.Add(BlockSpawner.CHOOSE);
+        this.ctrl.pathfinding.GetLineRenderer().enabled=false;
+        
+		foreach (Transform clone in BlockSpawner.Instance.Holder)
+		{
+			if (names.Contains(clone.name)) BlockSpawner.Instance.Despawn(clone);
+		}
+	}
+
+	protected virtual bool IsBlockRemoved(BlockCtrl blockCtrl)
     {
         Node node = blockCtrl.blockData.node;
         return !node.occupied && node.blockPlaced;
