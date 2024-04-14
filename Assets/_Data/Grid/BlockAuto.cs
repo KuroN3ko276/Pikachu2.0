@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class BlockAuto : GridAbstract
 {
@@ -25,8 +26,15 @@ public class BlockAuto : GridAbstract
                 if (found)
                 {
                     this.firstBlock = blockCtrl;
-                    this.secondBlock = sameBlock;
-                    return;
+					this.secondBlock = sameBlock;
+                    Transform chooseObj;
+                    Vector3 firstPos = firstBlock.transform.position;
+                    Vector3 secondPos = secondBlock.transform.position;
+                    chooseObj=this.ctrl.blockSpawner.Spawn(BlockSpawner.CHOOSE, firstPos, Quaternion.identity);
+					chooseObj.gameObject.SetActive(true);
+					chooseObj=this.ctrl.blockSpawner.Spawn(BlockSpawner.CHOOSE, secondPos, Quaternion.identity);
+					chooseObj.gameObject.SetActive(true);
+					return;
                 }
             }
         }

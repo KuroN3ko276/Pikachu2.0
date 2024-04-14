@@ -54,7 +54,7 @@ public class BlockDebug : GridAbstract
 
         foreach (Transform clone in BlockSpawner.Instance.Holder)
         {
-            if (names.Contains(clone.name)) BlockSpawner.Instance.Despawn(clone);
+            if (names.Contains(clone.name)) BlockSpawner.Instance.DeSpawn(clone);
         }
     }
 

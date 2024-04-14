@@ -35,7 +35,7 @@ public class BlockHandler : GridAbstract
             bool isPathFound = this.ctrl.pathfinding.FindPath(this.firstBlock, this.lastBlock);
             if (isPathFound) this.FreeBlocks();
         }
-		Invoke(nameof(this.ClearScreen), 0.2f);
+		//Invoke(nameof(this.ClearScreen), 0.2f);
 		this.firstBlock = null;
         this.lastBlock = null;
     }
@@ -51,7 +51,7 @@ public class BlockHandler : GridAbstract
         
 		foreach (Transform clone in BlockSpawner.Instance.Holder)
 		{
-			if (names.Contains(clone.name)) BlockSpawner.Instance.Despawn(clone);
+			if (names.Contains(clone.name)) BlockSpawner.Instance.DeSpawn(clone);
 		}
 	}
 

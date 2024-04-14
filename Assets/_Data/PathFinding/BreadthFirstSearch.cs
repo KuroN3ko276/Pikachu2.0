@@ -61,10 +61,11 @@ public class BreadthFirstSearch : AbstractPathfinding
         List<NodeStep> steps;
         while (this.queue.Count > 0)
         {
+            
             //Node current = this.Dequeue();
             Node current = this.queue.Dequeue();
-
-            if (current == targetNode)
+			this.ShowScanStep(current);
+			if (current == targetNode)
             {
                 this.finalPath = this.BuildFinalPath(startNode, targetNode);
                 break;
