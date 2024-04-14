@@ -11,16 +11,16 @@ public class BlockClickable : BlockAbstract
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadColider();
+        this.LoadCollider();
     }
 
-    protected virtual void LoadColider()
+    protected virtual void LoadCollider()
     {
         if (this._collider != null) return;
         this._collider = GetComponent<BoxCollider>();
         this._collider.isTrigger = true;
         this._collider.size = new Vector3(0.79f, 0.99f, 0.5f);
-        Debug.Log(transform.name + " LoadColider", gameObject);
+        Debug.Log(transform.name + " LoadCollider", gameObject);
     }
 
     protected void OnMouseUp()

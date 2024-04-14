@@ -33,9 +33,12 @@ public class BlockHandler : GridAbstract
         if (this.firstBlock != this.lastBlock && this.firstBlock.blockID == this.lastBlock.blockID)
         {
             bool isPathFound = this.ctrl.pathfinding.FindPath(this.firstBlock, this.lastBlock);
-            if (isPathFound) this.FreeBlocks();
+            if (isPathFound)
+            {
+                this.FreeBlocks();
+            }
         }
-		//Invoke(nameof(this.ClearScreen), 0.2f);
+		Invoke(nameof(this.ClearScreen), 0.2f);
 		this.firstBlock = null;
         this.lastBlock = null;
     }

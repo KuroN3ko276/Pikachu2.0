@@ -9,7 +9,7 @@ public class BlockCtrl : SaiMonoBehaviour
     public Sprite sprite;
     public string blockID = "#";
     public BlockData blockData;
-    public List<BlockCtrl> neighbors = new List<BlockCtrl>();
+    //public List<BlockCtrl> neighbors = new List<BlockCtrl>();
 
     protected override void LoadComponents()
     {

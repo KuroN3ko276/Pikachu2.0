@@ -36,7 +36,7 @@ public class GridSystem : GridAbstract
         //this.FindBlocksNeighbors();
     }
     //Tìm kiếm các Node kề với Node hiện tại
-    protected virtual void FindNodesNeighbors()
+    public virtual void FindNodesNeighbors()
     {
         int x, y;
         foreach (Node node in this.nodes)
@@ -60,17 +60,17 @@ public class GridSystem : GridAbstract
         return null;
     }
 
-    protected virtual void FindBlocksNeighbors()
-    {
-        foreach (Node node in this.nodes)
-        {
-            if (node.blockCtrl == null) continue;
-            node.blockCtrl.neighbors.Add(node.up.blockCtrl);
-            node.blockCtrl.neighbors.Add(node.right.blockCtrl);
-            node.blockCtrl.neighbors.Add(node.down.blockCtrl);
-            node.blockCtrl.neighbors.Add(node.left.blockCtrl);
-        }
-    }
+    //protected virtual void FindBlocksNeighbors()
+    //{
+    //    foreach (Node node in this.nodes)
+    //    {
+    //        if (node.blockCtrl == null) continue;
+    //        node.blockCtrl.neighbors.Add(node.up.blockCtrl);
+    //        node.blockCtrl.neighbors.Add(node.right.blockCtrl);
+    //        node.blockCtrl.neighbors.Add(node.down.blockCtrl);
+    //        node.blockCtrl.neighbors.Add(node.left.blockCtrl);
+    //    }
+    //}
 
     protected virtual void InitGridSystem()
     {
@@ -189,7 +189,13 @@ public class GridSystem : GridAbstract
 
     public virtual BlockCtrl GetRandomBlock()
     {
-        int randIndex = Random.Range(0, this.blocks.Count);
+		int randIndex = Random.Range(0, this.blocks.Count);
+		return this.blocks[randIndex];
+	}
+
+    public virtual BlockCtrl GetRandomBlockForShuffle()
+    {
+        int randIndex = this.blocks.Count;
         return this.blocks[randIndex];
     }
 }

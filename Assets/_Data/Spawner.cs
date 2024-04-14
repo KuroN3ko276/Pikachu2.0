@@ -93,9 +93,9 @@ public abstract class Spawner : SaiMonoBehaviour
 
     public virtual void DeSpawn(Transform obj)
     {
-        //if (this.poolObjs.Contains(obj)) return;
+        if (this.poolObjs.Contains(obj)) return;
 
-        //this.poolObjs.Add(obj);
+        this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
         this.spawnedCount--;
     }

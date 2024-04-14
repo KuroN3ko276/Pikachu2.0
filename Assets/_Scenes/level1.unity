@@ -1271,8 +1271,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 950010296}
-  - component: {fileID: 950010297}
   - component: {fileID: 950010298}
+  - component: {fileID: 950010299}
   m_Layer: 0
   m_Name: BreadthFirstSearch
   m_TagString: Untagged
@@ -1295,23 +1295,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1567163673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &950010297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950010295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32814fb168f4f704a97ca66a7fe3e01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ctrl: {fileID: 1567163674}
-  finalPath: []
-  cameFromNodes: []
-  visited: []
-  lineRenderer: {fileID: 0}
 --- !u!120 &950010298
 LineRenderer:
   serializedVersion: 2
@@ -1416,6 +1399,24 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &950010299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950010295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32814fb168f4f704a97ca66a7fe3e01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrl: {fileID: 1567163674}
+  finalPath: []
+  cameFromNodes: []
+  visited: []
+  lineRenderer: {fileID: 950010298}
+  openSet: []
 --- !u!1 &964586251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2037,7 @@ MonoBehaviour:
   blockHandler: {fileID: 1777459315}
   blockAuto: {fileID: 807166121}
   gridSystem: {fileID: 1619264326}
-  pathfinding: {fileID: 950010297}
+  pathfinding: {fileID: 950010299}
 --- !u!1 &1598656580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2169,9 @@ MonoBehaviour:
   nodes:
   - x: 0
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2177,6 +2181,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2186,6 +2193,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2195,6 +2205,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2204,6 +2217,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2213,6 +2229,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2222,6 +2241,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2231,6 +2253,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2240,6 +2265,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2249,6 +2277,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2258,6 +2289,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 0
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0
@@ -2267,6 +2301,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2276,6 +2313,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2285,6 +2325,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2294,6 +2337,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2303,6 +2349,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2312,6 +2361,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2321,6 +2373,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2330,6 +2385,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2339,6 +2397,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2348,6 +2409,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2357,6 +2421,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 1
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0.8
     weight: 1
     occupied: 0
@@ -2366,6 +2433,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2375,6 +2445,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2384,6 +2457,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2393,6 +2469,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2402,6 +2481,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2411,6 +2493,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2420,6 +2505,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2429,6 +2517,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2438,6 +2529,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2447,6 +2541,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2456,6 +2553,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 2
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 1.6
     weight: 1
     occupied: 0
@@ -2465,6 +2565,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2474,6 +2577,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2483,6 +2589,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2492,6 +2601,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2501,6 +2613,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2510,6 +2625,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2519,6 +2637,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2528,6 +2649,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2537,6 +2661,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2546,6 +2673,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2555,6 +2685,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 3
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 2.4
     weight: 1
     occupied: 0
@@ -2564,6 +2697,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2573,6 +2709,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2582,6 +2721,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2591,6 +2733,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2600,6 +2745,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2609,6 +2757,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2618,6 +2769,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2627,6 +2781,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2636,6 +2793,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2645,6 +2805,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2654,6 +2817,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 4
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 3.2
     weight: 1
     occupied: 0
@@ -2663,6 +2829,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2672,6 +2841,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2681,6 +2853,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2690,6 +2865,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2699,6 +2877,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2708,6 +2889,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2717,6 +2901,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2726,6 +2913,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2735,6 +2925,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2744,6 +2937,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2753,6 +2949,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 5
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4
     weight: 1
     occupied: 0
@@ -2762,6 +2961,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2771,6 +2973,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2780,6 +2985,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2789,6 +2997,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2798,6 +3009,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2807,6 +3021,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2816,6 +3033,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2825,6 +3045,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2834,6 +3057,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2843,6 +3069,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2852,6 +3081,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 6
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 4.8
     weight: 1
     occupied: 0
@@ -2861,6 +3093,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2870,6 +3105,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2879,6 +3117,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2888,6 +3129,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2897,6 +3141,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2906,6 +3153,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2915,6 +3165,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2924,6 +3177,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2933,6 +3189,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2942,6 +3201,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2951,6 +3213,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 7
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 5.6
     weight: 1
     occupied: 0
@@ -2960,6 +3225,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -2969,6 +3237,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -2978,6 +3249,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -2987,6 +3261,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -2996,6 +3273,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3005,6 +3285,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3014,6 +3297,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3023,6 +3309,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3032,6 +3321,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3041,6 +3333,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3050,6 +3345,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 8
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 6.4
     weight: 1
     occupied: 0
@@ -3059,6 +3357,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3068,6 +3369,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3077,6 +3381,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3086,6 +3393,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3095,6 +3405,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3104,6 +3417,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3113,6 +3429,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3122,6 +3441,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3131,6 +3453,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3140,6 +3465,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3149,6 +3477,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 9
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 7.2
     weight: 1
     occupied: 0
@@ -3158,6 +3489,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3167,6 +3501,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3176,6 +3513,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3185,6 +3525,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3194,6 +3537,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3203,6 +3549,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3212,6 +3561,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3221,6 +3573,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3230,6 +3585,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3239,6 +3597,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3248,6 +3609,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 10
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8
     weight: 1
     occupied: 0
@@ -3257,6 +3621,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3266,6 +3633,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3275,6 +3645,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3284,6 +3657,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3293,6 +3669,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3302,6 +3681,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3311,6 +3693,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3320,6 +3705,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3329,6 +3717,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3338,6 +3729,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3347,6 +3741,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 11
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 8.8
     weight: 1
     occupied: 0
@@ -3356,6 +3753,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3365,6 +3765,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3374,6 +3777,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3383,6 +3789,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3392,6 +3801,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3401,6 +3813,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3410,6 +3825,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3419,6 +3837,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3428,6 +3849,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3437,6 +3861,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3446,6 +3873,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 12
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 9.6
     weight: 1
     occupied: 0
@@ -3455,6 +3885,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3464,6 +3897,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3473,6 +3909,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3482,6 +3921,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3491,6 +3933,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3500,6 +3945,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3509,6 +3957,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3518,6 +3969,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3527,6 +3981,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3536,6 +3993,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3545,6 +4005,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 13
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 10.4
     weight: 1
     occupied: 0
@@ -3554,6 +4017,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3563,6 +4029,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3572,6 +4041,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3581,6 +4053,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3590,6 +4065,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3599,6 +4077,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3608,6 +4089,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3617,6 +4101,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3626,6 +4113,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3635,6 +4125,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3644,6 +4137,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 14
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 11.2
     weight: 1
     occupied: 0
@@ -3653,6 +4149,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3662,6 +4161,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3671,6 +4173,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3680,6 +4185,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3689,6 +4197,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3698,6 +4209,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3707,6 +4221,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3716,6 +4233,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3725,6 +4245,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3734,6 +4257,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3743,6 +4269,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 15
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12
     weight: 1
     occupied: 0
@@ -3752,6 +4281,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3761,6 +4293,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3770,6 +4305,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3779,6 +4317,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3788,6 +4329,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3797,6 +4341,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3806,6 +4353,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3815,6 +4365,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3824,6 +4377,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3833,6 +4389,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3842,6 +4401,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 16
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 12.8
     weight: 1
     occupied: 0
@@ -3851,6 +4413,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3860,6 +4425,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 1
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3869,6 +4437,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 2
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3878,6 +4449,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 3
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3887,6 +4461,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 4
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3896,6 +4473,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 5
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3905,6 +4485,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 6
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3914,6 +4497,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 7
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3923,6 +4509,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 8
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3932,6 +4521,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 9
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -3941,6 +4533,9 @@ MonoBehaviour:
     blockCtrl: {fileID: 0}
   - x: 17
     y: 10
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 13.6
     weight: 1
     occupied: 0
@@ -5159,6 +5754,9 @@ MonoBehaviour:
   node:
     x: 0
     y: 0
+    gCost: 0
+    hCost: 0
+    fCost: 0
     posX: 0
     weight: 1
     occupied: 0

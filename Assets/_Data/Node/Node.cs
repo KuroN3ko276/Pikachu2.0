@@ -8,8 +8,11 @@ public class Node
 {
     public int x = 0;
     public int y = 0;
+    //public int gCost = 0;
+    //public int hCost = 0;
+    //public int fCost = 0;
     public float posX = 0;
-    public int weight = 1;
+    //public int weight = 1;
     public bool occupied = false;
     public bool blockPlaced = false;
     public int nodeId;

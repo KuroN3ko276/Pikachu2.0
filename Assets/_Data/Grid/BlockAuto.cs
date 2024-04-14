@@ -57,27 +57,55 @@ public class BlockAuto : GridAbstract
     public virtual void ShuffleBlocks()
     {
         BlockCtrl randomBlock;
-        foreach(BlockCtrl blockCtrl in this.ctrl.gridSystem.blocks)
+        foreach (BlockCtrl blockCtrl in this.ctrl.gridSystem.blocks)
         {
             randomBlock = this.ctrl.gridSystem.GetRandomBlock();
             this.SwapBlocks(blockCtrl, randomBlock);
         }
+        //this.SwapBlocks(this.ctrl.gridSystem.blocks[1], this.ctrl.gridSystem.blocks[8]);
+        Debug.LogWarning("ShuffleBlocks");
     }
 
-    protected virtual void SwapBlocks(BlockCtrl blockCtrl, BlockCtrl randomBlock) {
-        if (blockCtrl == randomBlock) return;
-        BlockCtrl temp = blockCtrl;
+    //protected virtual void SwapBlocks(BlockCtrl blockCtrl, BlockCtrl randomBlock) {
+    //    if (blockCtrl == randomBlock) return;
+    //    if (!randomBlock.blockData.node.occupied) return;
+    //    BlockCtrl temp = blockCtrl;
 
-        blockCtrl.spriteRender.sprite = randomBlock.sprite;
+    //    blockCtrl.spriteRender.sprite = randomBlock.sprite;
+    //    blockCtrl.sprite = randomBlock.sprite;
+    //    blockCtrl.blockId = randomBlock.blockId;
+    //    blockCtrl.blockData.node = randomblock.blockdata.node;
+    //    blockCtrl.blockData.node.up = randomblock.blockdata.node.up;
+    //    blockCtrl.blockData.node.down = randomblock.blockdata.node.down;
+    //    blockCtrl.blockData.node.left = randomblock.blockdata.node.left;
+    //    blockCtrl.blockData.node.right = randomblock.blockdata.node.right;
+    //    //blockctrl.name = randomblock.name;
+
+    //    randomblock.spriterender.sprite = temp.sprite;
+    //    randomblock.sprite = temp.sprite;
+    //    randomblock.blockid = temp.blockid;
+    //    randomblock.blockdata.node = temp.blockdata.node;
+    //    randomblock.neighbors = temp.neighbors;
+    //    randomblock.blockdata.node.up = temp.blockdata.node.up;
+    //    randomblock.blockdata.node.down = temp.blockdata.node.down;
+    //    randomblock.blockdata.node.left = temp.blockdata.node.left;
+    //    randomblock.blockdata.node.right = temp.blockdata.node.right;
+    //    //randomblock.name = temp.name;
+    //}
+    protected virtual void SwapBlocks(BlockCtrl blockCtrl, BlockCtrl randomBlock)
+    {
+        if (blockCtrl == randomBlock) return;
+        BlockCtrl temp = new BlockCtrl();
+        temp.blockID = blockCtrl.blockID;
+        temp.sprite = blockCtrl.sprite;
+
         blockCtrl.sprite = randomBlock.sprite;
         blockCtrl.blockID = randomBlock.blockID;
-        blockCtrl.blockData = randomBlock.blockData;
-        blockCtrl.neighbors = randomBlock.neighbors;
+        blockCtrl.SetSprite(blockCtrl.sprite);
 
-        randomBlock.spriteRender.sprite = temp.sprite;
         randomBlock.sprite = temp.sprite;
         randomBlock.blockID = temp.blockID;
-        randomBlock.blockData = temp.blockData;
-        randomBlock.neighbors = temp.neighbors;
-    }
+		randomBlock.SetSprite(randomBlock.sprite);
+		Debug.LogWarning("SwapBlock");
+	}
 }
