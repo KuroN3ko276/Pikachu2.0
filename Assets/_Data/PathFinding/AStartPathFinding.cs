@@ -9,6 +9,7 @@ public class AStar : AbstractPathfinding
 	public GridManagerCtrl ctrl;
 	public List<Node> openSet = new List<Node>();
 	public HashSet<Node> closedSet = new HashSet<Node>();
+	public List<NodeStep> cameFromNodes = new List<NodeStep>();
 	public List<Node> finalPath = new List<Node>();
 	//public List<NodeStep> cameFromNodes = new List<NodeStep>();
 	public LineRenderer lineRenderer;
@@ -43,19 +44,18 @@ public class AStar : AbstractPathfinding
 	{
 		openSet.Clear();
 		finalPath.Clear();
-		//cameFromNodes.Clear();
+		cameFromNodes.Clear();
 		closedSet.Clear();
 	}
 
 	public override bool FindPath(BlockCtrl startBlock, BlockCtrl targetBlock)
 	{
-		if (startBlock == null || targetBlock == null)
-		{
-			Debug.LogWarning("startBlock or targetBlock is null");
-		}
 		Node startNode = startBlock.blockData.node;
 		Node targetNode = targetBlock.blockData.node;
 		openSet.Add(startNode);
+		this.cameFromNodes.Add(new NodeStep(startNode, startNode));
+		NodeStep nodeStep;
+		List<NodeStep> steps;
 
 		while (openSet.Count > 0)
 		{
@@ -93,6 +93,14 @@ public class AStar : AbstractPathfinding
 
 				if (!openSet.Contains(neighbor) || newCostToNeighbor < neighbor.gCost)
 				{
+					nodeStep = new NodeStep(neighbor, currentNode);
+					this.cameFromNodes.Add(nodeStep);
+					steps = this.BuildNodeStepPath(neighbor, startNode);
+					nodeStep.stepsString = this.GetStringFromSteps(steps);
+					nodeStep.directionString = this.GetDirectionsFromSteps(steps);
+					nodeStep.changeDirectionCount = this.CountDirectionFrom2Nodes(neighbor, startNode);
+					if (nodeStep.changeDirectionCount > 3) continue;
+
 					neighbor.gCost = newCostToNeighbor;
 					neighbor.hCost = GetDistance(neighbor, targetNode);
 					neighbor.parent = currentNode;
@@ -205,5 +213,60 @@ public class AStar : AbstractPathfinding
 		}
 
 		return turnCount;
+	}
+
+
+	protected virtual string GetStringFromSteps(List<NodeStep> steps)
+	{
+		string stepsString = "";
+		foreach (NodeStep nodeStep in steps)
+		{
+			stepsString += nodeStep.toNode.Name() + "=>";
+		}
+		return stepsString;
+	}
+
+	protected virtual string GetDirectionsFromSteps(List<NodeStep> steps)
+	{
+		string stepsString = "";
+		foreach (NodeStep nodeStep in steps)
+		{
+			stepsString += nodeStep.direction + "=>";
+		}
+		return stepsString;
+	}
+
+	protected virtual int CountDirectionFrom2Nodes(Node currentNode, Node startNode)
+	{
+		int count = 0;
+		List<NodeStep> steps = this.BuildNodeStepPath(currentNode, startNode);
+		count = this.CountDirectionFromSteps(steps);
+		return count;
+	}
+
+	protected virtual List<NodeStep> BuildNodeStepPath(Node currentNode, Node startNode)
+	{
+		List<NodeStep> steps = new List<NodeStep>();
+
+		Node checkNode = currentNode;
+		for (int i = 0; i < this.cameFromNodes.Count; i++)
+		{
+			NodeStep step = this.GetNodeStepByToNode(checkNode);
+			steps.Add(step);
+			checkNode = step.fromNode;
+			if (step.fromNode == startNode) break;
+		}
+
+		//this.ShowScanStep(currentNode);
+		return steps;
+	}
+	protected virtual Node GetFromNode(Node toNode)
+	{
+		return this.GetNodeStepByToNode(toNode).fromNode;
+	}
+
+	protected virtual NodeStep GetNodeStepByToNode(Node toNode)
+	{
+		return this.cameFromNodes.Find(item => item.toNode == toNode);
 	}
 }
