@@ -330,6 +330,159 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: -225}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &79344809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79344812}
+  - component: {fileID: 79344811}
+  - component: {fileID: 79344810}
+  m_Layer: 0
+  m_Name: AStartPathFinding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &79344810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79344809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94e91051bb6e9a458ec3c4a8b2bd965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrl: {fileID: 1567163674}
+  openSet: []
+  finalPath: []
+  lineRenderer: {fileID: 79344811}
+--- !u!120 &79344811
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79344809}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.08
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
+--- !u!4 &79344812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79344809}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1567163673}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &81903314
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +763,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   blockID: '#'
   blockData: {fileID: 2117755382}
-  neighbors: []
 --- !u!1 &608807360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &950010296
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1568,6 @@ MonoBehaviour:
   cameFromNodes: []
   visited: []
   lineRenderer: {fileID: 950010298}
-  openSet: []
 --- !u!1 &964586251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2167,7 @@ Transform:
   - {fileID: 1619264325}
   - {fileID: 964586253}
   - {fileID: 950010296}
+  - {fileID: 79344812}
   - {fileID: 1777459314}
   - {fileID: 324274670}
   - {fileID: 807166120}
@@ -2037,7 +2189,7 @@ MonoBehaviour:
   blockHandler: {fileID: 1777459315}
   blockAuto: {fileID: 807166121}
   gridSystem: {fileID: 1619264326}
-  pathfinding: {fileID: 950010299}
+  pathfinding: {fileID: 79344810}
 --- !u!1 &1598656580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,9 +2323,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 0
@@ -2183,9 +2333,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 1
@@ -2195,9 +2343,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 2
@@ -2207,9 +2353,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 3
@@ -2219,9 +2363,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 4
@@ -2231,9 +2373,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 5
@@ -2243,9 +2383,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 6
@@ -2255,9 +2393,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 7
@@ -2267,9 +2403,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 8
@@ -2279,9 +2413,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 9
@@ -2291,9 +2423,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 10
@@ -2303,9 +2433,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 11
@@ -2315,9 +2443,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 12
@@ -2327,9 +2453,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 13
@@ -2339,9 +2463,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 14
@@ -2351,9 +2473,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 15
@@ -2363,9 +2483,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 16
@@ -2375,9 +2493,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 17
@@ -2387,9 +2503,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 18
@@ -2399,9 +2513,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 19
@@ -2411,9 +2523,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 20
@@ -2423,9 +2533,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 21
@@ -2435,9 +2543,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 22
@@ -2447,9 +2553,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 23
@@ -2459,9 +2563,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 24
@@ -2471,9 +2573,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 25
@@ -2483,9 +2583,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 26
@@ -2495,9 +2593,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 27
@@ -2507,9 +2603,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 28
@@ -2519,9 +2613,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 29
@@ -2531,9 +2623,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 30
@@ -2543,9 +2633,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 31
@@ -2555,9 +2643,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 1.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 32
@@ -2567,9 +2653,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 33
@@ -2579,9 +2663,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 34
@@ -2591,9 +2673,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 35
@@ -2603,9 +2683,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 36
@@ -2615,9 +2693,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 37
@@ -2627,9 +2703,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 38
@@ -2639,9 +2713,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 39
@@ -2651,9 +2723,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 40
@@ -2663,9 +2733,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 41
@@ -2675,9 +2743,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 42
@@ -2687,9 +2753,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 2.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 43
@@ -2699,9 +2763,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 44
@@ -2711,9 +2773,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 45
@@ -2723,9 +2783,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 46
@@ -2735,9 +2793,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 47
@@ -2747,9 +2803,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 48
@@ -2759,9 +2813,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 49
@@ -2771,9 +2823,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 50
@@ -2783,9 +2833,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 51
@@ -2795,9 +2843,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 52
@@ -2807,9 +2853,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 53
@@ -2819,9 +2863,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 3.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 54
@@ -2831,9 +2873,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 55
@@ -2843,9 +2883,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 56
@@ -2855,9 +2893,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 57
@@ -2867,9 +2903,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 58
@@ -2879,9 +2913,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 59
@@ -2891,9 +2923,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 60
@@ -2903,9 +2933,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 61
@@ -2915,9 +2943,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 62
@@ -2927,9 +2953,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 63
@@ -2939,9 +2963,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 64
@@ -2951,9 +2973,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 65
@@ -2963,9 +2983,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 66
@@ -2975,9 +2993,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 67
@@ -2987,9 +3003,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 68
@@ -2999,9 +3013,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 69
@@ -3011,9 +3023,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 70
@@ -3023,9 +3033,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 71
@@ -3035,9 +3043,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 72
@@ -3047,9 +3053,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 73
@@ -3059,9 +3063,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 74
@@ -3071,9 +3073,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 75
@@ -3083,9 +3083,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 4.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 76
@@ -3095,9 +3093,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 77
@@ -3107,9 +3103,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 78
@@ -3119,9 +3113,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 79
@@ -3131,9 +3123,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 80
@@ -3143,9 +3133,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 81
@@ -3155,9 +3143,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 82
@@ -3167,9 +3153,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 83
@@ -3179,9 +3163,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 84
@@ -3191,9 +3173,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 85
@@ -3203,9 +3183,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 86
@@ -3215,9 +3193,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 5.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 87
@@ -3227,9 +3203,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 88
@@ -3239,9 +3213,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 89
@@ -3251,9 +3223,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 90
@@ -3263,9 +3233,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 91
@@ -3275,9 +3243,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 92
@@ -3287,9 +3253,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 93
@@ -3299,9 +3263,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 94
@@ -3311,9 +3273,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 95
@@ -3323,9 +3283,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 96
@@ -3335,9 +3293,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 97
@@ -3347,9 +3303,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 6.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 98
@@ -3359,9 +3313,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 99
@@ -3371,9 +3323,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 100
@@ -3383,9 +3333,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 101
@@ -3395,9 +3343,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 102
@@ -3407,9 +3353,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 103
@@ -3419,9 +3363,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 104
@@ -3431,9 +3373,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 105
@@ -3443,9 +3383,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 106
@@ -3455,9 +3393,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 107
@@ -3467,9 +3403,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 108
@@ -3479,9 +3413,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 7.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 109
@@ -3491,9 +3423,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 110
@@ -3503,9 +3433,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 111
@@ -3515,9 +3443,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 112
@@ -3527,9 +3453,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 113
@@ -3539,9 +3463,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 114
@@ -3551,9 +3473,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 115
@@ -3563,9 +3483,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 116
@@ -3575,9 +3493,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 117
@@ -3587,9 +3503,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 118
@@ -3599,9 +3513,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 119
@@ -3611,9 +3523,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 120
@@ -3623,9 +3533,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 121
@@ -3635,9 +3543,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 122
@@ -3647,9 +3553,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 123
@@ -3659,9 +3563,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 124
@@ -3671,9 +3573,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 125
@@ -3683,9 +3583,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 126
@@ -3695,9 +3593,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 127
@@ -3707,9 +3603,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 128
@@ -3719,9 +3613,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 129
@@ -3731,9 +3623,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 130
@@ -3743,9 +3633,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 8.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 131
@@ -3755,9 +3643,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 132
@@ -3767,9 +3653,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 133
@@ -3779,9 +3663,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 134
@@ -3791,9 +3673,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 135
@@ -3803,9 +3683,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 136
@@ -3815,9 +3693,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 137
@@ -3827,9 +3703,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 138
@@ -3839,9 +3713,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 139
@@ -3851,9 +3723,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 140
@@ -3863,9 +3733,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 141
@@ -3875,9 +3743,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 9.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 142
@@ -3887,9 +3753,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 143
@@ -3899,9 +3763,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 144
@@ -3911,9 +3773,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 145
@@ -3923,9 +3783,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 146
@@ -3935,9 +3793,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 147
@@ -3947,9 +3803,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 148
@@ -3959,9 +3813,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 149
@@ -3971,9 +3823,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 150
@@ -3983,9 +3833,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 151
@@ -3995,9 +3843,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 152
@@ -4007,9 +3853,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 10.4
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 153
@@ -4019,9 +3863,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 154
@@ -4031,9 +3873,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 155
@@ -4043,9 +3883,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 156
@@ -4055,9 +3893,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 157
@@ -4067,9 +3903,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 158
@@ -4079,9 +3913,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 159
@@ -4091,9 +3923,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 160
@@ -4103,9 +3933,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 161
@@ -4115,9 +3943,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 162
@@ -4127,9 +3953,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 163
@@ -4139,9 +3963,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 11.2
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 164
@@ -4151,9 +3973,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 165
@@ -4163,9 +3983,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 166
@@ -4175,9 +3993,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 167
@@ -4187,9 +4003,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 168
@@ -4199,9 +4013,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 169
@@ -4211,9 +4023,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 170
@@ -4223,9 +4033,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 171
@@ -4235,9 +4043,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 172
@@ -4247,9 +4053,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 173
@@ -4259,9 +4063,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 174
@@ -4271,9 +4073,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 175
@@ -4283,9 +4083,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 176
@@ -4295,9 +4093,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 177
@@ -4307,9 +4103,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 178
@@ -4319,9 +4113,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 179
@@ -4331,9 +4123,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 180
@@ -4343,9 +4133,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 181
@@ -4355,9 +4143,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 182
@@ -4367,9 +4153,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 183
@@ -4379,9 +4163,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 184
@@ -4391,9 +4173,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 185
@@ -4403,9 +4183,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 12.8
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 186
@@ -4415,9 +4193,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 187
@@ -4427,9 +4203,7 @@ MonoBehaviour:
     y: 1
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 188
@@ -4439,9 +4213,7 @@ MonoBehaviour:
     y: 2
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 189
@@ -4451,9 +4223,7 @@ MonoBehaviour:
     y: 3
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 190
@@ -4463,9 +4233,7 @@ MonoBehaviour:
     y: 4
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 191
@@ -4475,9 +4243,7 @@ MonoBehaviour:
     y: 5
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 192
@@ -4487,9 +4253,7 @@ MonoBehaviour:
     y: 6
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 193
@@ -4499,9 +4263,7 @@ MonoBehaviour:
     y: 7
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 194
@@ -4511,9 +4273,7 @@ MonoBehaviour:
     y: 8
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 195
@@ -4523,9 +4283,7 @@ MonoBehaviour:
     y: 9
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 196
@@ -4535,9 +4293,7 @@ MonoBehaviour:
     y: 10
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 13.6
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 197
@@ -5756,9 +5512,7 @@ MonoBehaviour:
     y: 0
     gCost: 0
     hCost: 0
-    fCost: 0
     posX: 0
-    weight: 1
     occupied: 0
     blockPlaced: 0
     nodeId: 0
