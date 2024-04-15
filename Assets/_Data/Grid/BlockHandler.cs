@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BlockHandler : GridAbstract
@@ -7,8 +8,10 @@ public class BlockHandler : GridAbstract
     [Header("Block Handler")]
     public BlockCtrl firstBlock;
     public BlockCtrl lastBlock;
+    public TextMeshPro text;
+    public GameObject gameFinishObject;
 
-    public virtual void SetNode(BlockCtrl blockCtrl)
+	public virtual void SetNode(BlockCtrl blockCtrl)
     {
         Debug.Log("SetNode: " + blockCtrl.name);
         if (this.IsBlockRemoved(blockCtrl)) return;
@@ -46,6 +49,10 @@ public class BlockHandler : GridAbstract
         {
             this.ctrl.blockAuto.ShuffleBlocks();
         }
+        if(this.ctrl.gridSystem.blocks.Count == 0) 
+        {
+            gameFinishObject.SetActive(true);
+		}
     }
 
     public virtual void ClearScreen()
