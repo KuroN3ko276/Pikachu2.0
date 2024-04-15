@@ -93,7 +93,7 @@ public class BreadthFirstSearch : AbstractPathfinding
 
         }
 
-        this.ShowPath();
+        //this.ShowPath();
 
         return this.IsPathFound();
     }
@@ -142,7 +142,7 @@ public class BreadthFirstSearch : AbstractPathfinding
     }
 
     //Spawn đường đi giữa 2 đối tượng có thể ăn
-    protected virtual void ShowPath()
+    public override void ShowPath()
     {
         //lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = true;

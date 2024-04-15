@@ -35,15 +35,20 @@ public class BlockHandler : GridAbstract
             bool isPathFound = this.ctrl.pathfinding.FindPath(this.firstBlock, this.lastBlock);
             if (isPathFound)
             {
+                this.ctrl.pathfinding.ShowPath();
                 this.FreeBlocks();
             }
         }
 		Invoke(nameof(this.ClearScreen), 0.2f);
 		this.firstBlock = null;
         this.lastBlock = null;
+        if (!this.ctrl.blockAuto.checkNextMove())
+        {
+            this.ctrl.blockAuto.ShuffleBlocks();
+        }
     }
 
-	public virtual void ClearScreen()
+    public virtual void ClearScreen()
 	{
 		List<string> names = new List<string>();
 		names.Add(BlockSpawner.LINKER);
@@ -56,6 +61,8 @@ public class BlockHandler : GridAbstract
 		{
 			if (names.Contains(clone.name)) BlockSpawner.Instance.DeSpawn(clone);
 		}
+
+
 	}
 
 	protected virtual bool IsBlockRemoved(BlockCtrl blockCtrl)

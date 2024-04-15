@@ -8,4 +8,6 @@ public abstract class AbstractPathfinding : SaiMonoBehaviour
     public abstract void DataReset();
 
     public abstract LineRenderer GetLineRenderer();
+
+    public abstract void ShowPath();
 }

@@ -53,13 +53,18 @@ public class AStar : AbstractPathfinding
 		Node startNode = startBlock.blockData.node;
 		Node targetNode = targetBlock.blockData.node;
 		openSet.Add(startNode);
+
+
 		this.cameFromNodes.Add(new NodeStep(startNode, startNode));
 		NodeStep nodeStep;
 		List<NodeStep> steps;
 
+
 		while (openSet.Count > 0)
 		{
+
 			Node currentNode = openSet[0];
+			//this.ShowScanStep(currentNode); //Show Scan
 			for (int i = 1; i < openSet.Count; i++)
 			{
 				if (openSet[i].fCost < currentNode.fCost || (openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost))
@@ -89,6 +94,7 @@ public class AStar : AbstractPathfinding
 				if (currentNode.parent != null && GetDirectionChangeCost(currentNode.parent, currentNode, neighbor) > 0)
 				{
 					newCostToNeighbor += 10; // Additional cost for changing direction, you can adjust this value
+
 				}
 
 				if (!openSet.Contains(neighbor) || newCostToNeighbor < neighbor.gCost)
@@ -99,7 +105,12 @@ public class AStar : AbstractPathfinding
 					nodeStep.stepsString = this.GetStringFromSteps(steps);
 					nodeStep.directionString = this.GetDirectionsFromSteps(steps);
 					nodeStep.changeDirectionCount = this.CountDirectionFrom2Nodes(neighbor, startNode);
-					if (nodeStep.changeDirectionCount > 3) continue;
+					if (nodeStep.changeDirectionCount > 3)
+					{
+						//closedSet.Remove(currentNode);
+						continue;
+					}
+
 
 					neighbor.gCost = newCostToNeighbor;
 					neighbor.hCost = GetDistance(neighbor, targetNode);
@@ -112,7 +123,7 @@ public class AStar : AbstractPathfinding
 				}
 			}
 		}
-		this.ShowPath();
+		//this.ShowPath();
 		return this.IsPathFound(); // No path found
 
 	}
@@ -124,7 +135,7 @@ public class AStar : AbstractPathfinding
 		return !node.occupied;
 	}
 
-	static int GetDirectionChangeCost(Node fromNode, Node toNode, Node neighborNode)
+	static int GetDirectionChangeCost(Node fromNode , Node toNode, Node neighborNode)
 	{
 		// If any of the nodes is null, return 0 (no change in direction)
 		if (fromNode == null || toNode == null || neighborNode == null)
@@ -165,6 +176,16 @@ public class AStar : AbstractPathfinding
 	//kiểm tra xem có đi được từ Node có bị chiếm không
 	protected virtual bool IsPathFound()
 	{
+		//int countChangeDirection = 0;
+		//for(int i=1;i<finalPath.Count-1;i++)
+		//{
+		//	if (GetDirectionChangeCost(finalPath[i - 1], finalPath[i], finalPath[i + 1])>0)
+		//	{
+		//		countChangeDirection++;
+		//	}
+		//}
+		//if(countChangeDirection > 3)
+		//	return false;
 		return finalPath.Count > 0;
 	}
 
@@ -179,13 +200,12 @@ public class AStar : AbstractPathfinding
 			currentNode = currentNode.parent;
 		}
 		path.Add(startNode);
-
 		path.Reverse();
 		return path;
 	}
 
 	//Hiển thị đường đi ra màn hình
-	protected virtual void ShowPath()
+	public override void ShowPath()
 	{
 		lineRenderer.enabled = true;
 		List<Vector3> listPoint = new List<Vector3>();
@@ -260,13 +280,14 @@ public class AStar : AbstractPathfinding
 		//this.ShowScanStep(currentNode);
 		return steps;
 	}
-	protected virtual Node GetFromNode(Node toNode)
-	{
-		return this.GetNodeStepByToNode(toNode).fromNode;
-	}
-
 	protected virtual NodeStep GetNodeStepByToNode(Node toNode)
 	{
 		return this.cameFromNodes.Find(item => item.toNode == toNode);
+	}
+	protected virtual void ShowScanStep(Node currentNode)
+	{
+		Vector3 pos = currentNode.nodeObj.transform.position;
+		Transform obj = BlockSpawner.Instance.Spawn(BlockSpawner.SCAN_STEP, pos, Quaternion.identity);
+		obj.gameObject.SetActive(true);
 	}
 }
