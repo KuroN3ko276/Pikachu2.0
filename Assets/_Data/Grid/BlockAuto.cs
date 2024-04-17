@@ -12,14 +12,6 @@ public class BlockAuto : GridAbstract
 
 	public virtual bool checkNextMove()
 	{
-		//GridManagerCtrl.Instance.blockAuto.ShowHint();
-		//BlockCtrl firstBlock1 = GridManagerCtrl.Instance.blockAuto.firstBlock;
-		//BlockCtrl secondBlock1 = GridManagerCtrl.Instance.blockAuto.secondBlock;
-		//if (firstBlock1.blockData.node.occupied == false || secondBlock1.blockData.node.occupied == false)
-		//{
-		//	return false;
-		//}
-		//return true;
 		List<BlockCtrl> sameBlocks = new List<BlockCtrl>();
         bool found = false;
 		foreach (BlockCtrl blockCtrl in this.ctrl.gridSystem.blocks)

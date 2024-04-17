@@ -54,7 +54,6 @@ public class AStar : AbstractPathfinding
 		Node targetNode = targetBlock.blockData.node;
 		openSet.Add(startNode);
 
-
 		this.cameFromNodes.Add(new NodeStep(startNode, startNode));
 		NodeStep nodeStep;
 		List<NodeStep> steps;
@@ -107,7 +106,7 @@ public class AStar : AbstractPathfinding
 					nodeStep.changeDirectionCount = this.CountDirectionFrom2Nodes(neighbor, startNode);
 					if (nodeStep.changeDirectionCount > 3)
 					{
-						//closedSet.Remove(currentNode);
+						closedSet.Remove(currentNode);
 						continue;
 					}
 
@@ -167,7 +166,7 @@ public class AStar : AbstractPathfinding
 	{
 		int distX = Mathf.Abs(nodeA.x - nodeB.x);
 		int distY = Mathf.Abs(nodeA.y - nodeB.y);
-
+		/*return distX + distY*/;
 		if (distX > distY)
 			return 14 * distY + 10 * (distX - distY);
 		else
@@ -176,16 +175,6 @@ public class AStar : AbstractPathfinding
 	//kiểm tra xem có đi được từ Node có bị chiếm không
 	protected virtual bool IsPathFound()
 	{
-		//int countChangeDirection = 0;
-		//for(int i=1;i<finalPath.Count-1;i++)
-		//{
-		//	if (GetDirectionChangeCost(finalPath[i - 1], finalPath[i], finalPath[i + 1])>0)
-		//	{
-		//		countChangeDirection++;
-		//	}
-		//}
-		//if(countChangeDirection > 3)
-		//	return false;
 		return finalPath.Count > 0;
 	}
 

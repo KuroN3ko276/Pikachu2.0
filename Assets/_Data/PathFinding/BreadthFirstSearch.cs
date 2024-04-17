@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class BreadthFirstSearch : AbstractPathfinding
@@ -10,7 +11,8 @@ public class BreadthFirstSearch : AbstractPathfinding
     public Queue<Node> queue = new Queue<Node>();
     public List<Node> finalPath = new List<Node>();
     public List<NodeStep> cameFromNodes = new List<NodeStep>();
-    public List<Node> visited = new List<Node>();
+    //public List<Node> visited = new List<Node>();
+    public Dictionary<Node,List<Node>> visited = new Dictionary<Node,List<Node>>();
     public LineRenderer lineRenderer;
 
 	protected override void LoadComponents()
@@ -43,7 +45,7 @@ public class BreadthFirstSearch : AbstractPathfinding
         this.queue = new Queue<Node>();
         this.finalPath = new List<Node>();
         this.cameFromNodes = new List<NodeStep>();
-        this.visited = new List<Node>();
+        this.visited = new Dictionary<Node, List<Node>>();
     }
 
     public override bool FindPath(BlockCtrl startBlock, BlockCtrl targetBlock)
@@ -55,7 +57,7 @@ public class BreadthFirstSearch : AbstractPathfinding
         //this.Enqueue(startNode);'
         this.queue.Enqueue(startNode);
         this.cameFromNodes.Add(new NodeStep(startNode, startNode));
-        this.visited.Add(startNode);
+        this.visited.Add(startNode,null);
 
         NodeStep nodeStep;
         List<NodeStep> steps;
@@ -74,13 +76,21 @@ public class BreadthFirstSearch : AbstractPathfinding
             foreach (Node neighbor in current.Neighbors())
             {
                 if (neighbor == null) continue;
-                if (this.visited.Contains(neighbor)) continue;
-                if (!this.IsValidPosition(neighbor, targetNode)) continue;
+				//if (this.visited.Contains(neighbor)) continue;
+				if (this.visited.ContainsKey(neighbor) && this.visited[neighbor].Contains(current)) continue;
+				if (!this.IsValidPosition(neighbor, targetNode)) continue;
 
                 nodeStep = new NodeStep(neighbor, current);
                 this.cameFromNodes.Add(nodeStep);
-                this.visited.Add(neighbor);
-
+                //this.visited.Add(neighbor);
+                if(this.visited.ContainsKey(neighbor))
+                {
+					this.visited[neighbor].Add(current);
+				}
+                else
+                {
+                    this.visited.Add(neighbor,new List<Node>() {current});
+                }
                 steps = this.BuildNodeStepPath(neighbor, startNode);
                 nodeStep.stepsString = this.GetStringFromSteps(steps);
                 nodeStep.directionString = this.GetDirectionsFromSteps(steps);
@@ -104,15 +114,15 @@ public class BreadthFirstSearch : AbstractPathfinding
         return nodeCount > 0;
     }
 
-    protected virtual void ShowVisited()
-    {
-        foreach (Node node in this.visited)
-        {
-            Vector3 pos = node.nodeObj.transform.position;
-            Transform keyObj = this.ctrl.blockSpawner.Spawn(BlockSpawner.SCAN, pos, Quaternion.identity);
-            keyObj.gameObject.SetActive(true);
-        }
-    }
+    //protected virtual void ShowVisited()
+    //{
+    //    foreach (Node node in this.visited)
+    //    {
+    //        Vector3 pos = node.nodeObj.transform.position;
+    //        Transform keyObj = this.ctrl.blockSpawner.Spawn(BlockSpawner.SCAN, pos, Quaternion.identity);
+    //        keyObj.gameObject.SetActive(true);
+    //    }
+    //}
 
     protected virtual List<Node> BuildFinalPath(Node startNode, Node targetNode)
     {

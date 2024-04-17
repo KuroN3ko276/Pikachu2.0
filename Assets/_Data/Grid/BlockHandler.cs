@@ -8,7 +8,6 @@ public class BlockHandler : GridAbstract
     [Header("Block Handler")]
     public BlockCtrl firstBlock;
     public BlockCtrl lastBlock;
-    public TextMeshPro text;
     public GameObject gameFinishObject;
 
 	public virtual void SetNode(BlockCtrl blockCtrl)
@@ -49,7 +48,7 @@ public class BlockHandler : GridAbstract
         {
             this.ctrl.blockAuto.ShuffleBlocks();
         }
-        if(this.ctrl.gridSystem.blocks.Count == 0) 
+        if (this.ctrl.gridSystem.blocks.Count == 0) 
         {
             gameFinishObject.SetActive(true);
 		}
@@ -66,7 +65,9 @@ public class BlockHandler : GridAbstract
         
 		foreach (Transform clone in BlockSpawner.Instance.Holder)
 		{
-			if (names.Contains(clone.name)) BlockSpawner.Instance.DeSpawn(clone);
+			if (names.Contains(clone.name)) 
+                BlockSpawner.Instance.DeSpawn(clone);
+                //clone.gameObject.SetActive(false);
 		}
 
 
