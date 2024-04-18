@@ -89,16 +89,86 @@ public class FindingPath : AbstractPathfinding
     protected List<Node> findHorizontalAndVertical(Node startNode)
     {
         List<Node> nodes = new List<Node>();
-        foreach(Node node in this.ctrl.gridSystem.nodes)
+        foreach (Node node in this.ctrl.gridSystem.nodes)
         {
-            if( ( node.x == startNode.x || node.y == startNode.y ) && this.isRoad(node,startNode) )
+            if ((node.x == startNode.x || node.y == startNode.y) && node.occupied==false )
             {
-                nodes.Add(node);
+                if (this.isRoad(startNode,node))
+                {
+                    nodes.Add(node);
+                }
             }
         }
-
         return nodes;
     }
+    //  protected List<Node> findHorizontalAndVertical(Node startNode)
+    //  {
+    //      List<Node> nodes = new List<Node>();
+    //      Node currentNode = startNode;
+    //      bool flag = true;
+    //      while(flag)
+    //      {
+    //          if(this.IsValidPosition(currentNode,currentNode.up))
+    //          {
+    //              nodes.Add(currentNode.up);
+    //              currentNode = currentNode.up;
+    //              if(currentNode == null) { flag = false; }
+    //          }
+    //          else
+    //          {
+    //              flag = false;
+    //          }
+    //      }
+
+    //      currentNode = startNode;
+    //      flag = true;
+    //while (flag)
+    //{
+    //	if (this.IsValidPosition(currentNode, currentNode.down))
+    //	{
+    //		nodes.Add(currentNode.down);
+    //		currentNode = currentNode.down;
+    //		if (currentNode == null) { flag = false; }
+    //	}
+    //	else
+    //	{
+    //		flag = false;
+    //	}
+    //}
+
+    //currentNode = startNode;
+    //flag = true;
+    //while (flag)
+    //{
+    //	if (this.IsValidPosition(currentNode, currentNode.right))
+    //	{
+    //		nodes.Add(currentNode.right);
+    //		currentNode = currentNode.right;
+    //		if (currentNode == null) { flag = false; }
+    //	}
+    //	else
+    //	{
+    //		flag = false;
+    //	}
+    //}
+
+    //currentNode = startNode;
+    //flag = true;
+    //while (flag)
+    //{
+    //	if (this.IsValidPosition(currentNode, currentNode.left))
+    //	{
+    //		nodes.Add(currentNode.left);
+    //		currentNode = currentNode.left;
+    //		if (currentNode == null) { flag = false; }
+    //	}
+    //	else
+    //	{
+    //		flag = false;
+    //	}
+    //}
+    //return nodes;
+    //  }
 
     protected bool isRoad(Node startNode,Node targetNode)
     {
@@ -110,11 +180,14 @@ public class FindingPath : AbstractPathfinding
         {
 			if (startNode.y < targetNode.y)
 			{
+
 				while (currentNode != targetNode)
 				{
 					if (!this.IsValidPosition(currentNode.up,targetNode)) return false;
+               
 					currentNode = currentNode.up;
 				}
+				return true;
 			}
 			else
 			{
@@ -123,6 +196,7 @@ public class FindingPath : AbstractPathfinding
 					if (!this.IsValidPosition(currentNode.down, targetNode)) return false;
 					currentNode = currentNode.down;
 				}
+				return true;
 			}
 		}
         else if(startNode.y == targetNode.y)
@@ -135,27 +209,31 @@ public class FindingPath : AbstractPathfinding
 					if (!this.IsValidPosition(currentNode.right, targetNode)) return false;
 					currentNode = currentNode.right;
 				}
+				return true;
 			}
 			else
 			{
 				while (currentNode != targetNode)
 				{
-					if (!this.IsValidPosition(currentNode.left, targetNode)) return false;
+					if (!this.IsValidPosition(currentNode.left,targetNode)) return false;
 					currentNode = currentNode.left;
 				}
+				return true;
 			}
+            
 		}
-        return true;
+        else
+        {
+            return false;
+        }
     }
 
-	private bool IsValidPosition(Node startNode, Node targetNode)
-	{
-		if (startNode == targetNode) return true;
-
-		//if( targetNode.occupied) return false;
-
-        return !targetNode.occupied;
-
+	private bool IsValidPosition(Node node,Node targetNode)
+    {
+        if (node == targetNode) return true;
+        //if( targetNode.occupied) return false;
+        if (node.occupied) return false;
+        else return true;
 	}
 
 	protected virtual bool IsPathFound()
@@ -171,7 +249,6 @@ public class FindingPath : AbstractPathfinding
         lineRenderer.enabled = true;
         List<Vector3> listPoint = new List<Vector3>(); 
         Vector3 pos;
-        this.final = this.finalPath;
         foreach (Node node in this.finalPath)
         {
             pos = node.nodeObj.transform.position;

@@ -12,6 +12,7 @@ public class GridManagerCtrl : SaiMonoBehaviour
     public BlockHandler blockHandler;
     public BlockAuto blockAuto;
     public GridSystem gridSystem;
+    public Timer timer;
     public AbstractPathfinding pathfinding;
 
     protected override void Awake()
@@ -29,9 +30,17 @@ public class GridManagerCtrl : SaiMonoBehaviour
         this.LoadPathfinding();
         this.LoadBlockHandler();
         this.LoadGridSystem();
+        this.LoadTimer();
     }
 
-    protected virtual void LoadSpawner()
+	protected virtual void LoadTimer()
+	{
+		if (this.timer != null) return;
+		this.timer = transform.Find("Timer").GetComponent<Timer>();
+		Debug.LogWarning(transform.name + " LoadSpawner", gameObject);
+	}
+
+	protected virtual void LoadSpawner()
     {
         if (this.blockSpawner != null) return;
         this.blockSpawner = transform.Find("BlockSpawner").GetComponent<BlockSpawner>();
