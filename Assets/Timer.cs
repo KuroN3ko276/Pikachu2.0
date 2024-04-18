@@ -6,28 +6,35 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
 	public TextMeshPro timerText;
-	private float startTime;
+	public float totalTime = 300f; // Total countdown time in seconds
+	private float timeLeft;
 	private bool isRunning;
+	public GameObject gameFinishObject;
 
 	void Start()
 	{
 		StartTimer();
+		//blockHandler = transform.parent.GetComponent<BlockHandler>();
 	}
 
 	void Update()
 	{
 		if (isRunning)
 		{
-			float t = Time.time - startTime;
-			string minutes = ((int)t / 60).ToString("00");
-			string seconds = (t % 60).ToString("00");
-			timerText.text = minutes + ":" + seconds;
+			timeLeft -= Time.deltaTime;
+			if (timeLeft <= 0)
+			{
+				timeLeft = 0;
+				gameFinishObject.SetActive(true);
+				StopTimer();
+			}
+			DisplayTimeLeft();
 		}
 	}
 
 	public void StartTimer()
 	{
-		startTime = Time.time;
+		timeLeft = totalTime;
 		isRunning = true;
 	}
 
@@ -36,9 +43,10 @@ public class Timer : MonoBehaviour
 		isRunning = false;
 	}
 
-	public void ResetTimer()
+	void DisplayTimeLeft()
 	{
-		timerText.text = "00:00";
-		isRunning = false;
+		int minutes = Mathf.FloorToInt(timeLeft / 60);
+		int seconds = Mathf.FloorToInt(timeLeft % 60);
+		timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 	}
 }

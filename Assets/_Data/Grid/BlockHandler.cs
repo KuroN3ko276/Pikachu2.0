@@ -14,7 +14,6 @@ public class BlockHandler : GridAbstract
     {
         Debug.Log("SetNode: " + blockCtrl.name);
         if (this.IsBlockRemoved(blockCtrl)) return;
-
         Vector3 pos;
         Transform chooseObj;
         if (this.firstBlock == null)
@@ -50,6 +49,7 @@ public class BlockHandler : GridAbstract
         }
         if (this.ctrl.gridSystem.blocks.Count == 0) 
         {
+            this.ctrl.timer.StopTimer();
             gameFinishObject.SetActive(true);
 		}
     }
