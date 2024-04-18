@@ -10,7 +10,7 @@ public class FindingPath : AbstractPathfinding
     public GridManagerCtrl ctrl;
     public LineRenderer lineRenderer;
     public List<Node> finalPath = new List<Node>();
-
+	public List<Node> final = new List<Node>();
 	protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -112,7 +112,7 @@ public class FindingPath : AbstractPathfinding
 			{
 				while (currentNode != targetNode)
 				{
-					if (!this.IsValidPosition(startNode, currentNode.up)) return false;
+					if (!this.IsValidPosition(currentNode.up,targetNode)) return false;
 					currentNode = currentNode.up;
 				}
 			}
@@ -120,7 +120,7 @@ public class FindingPath : AbstractPathfinding
 			{
 				while (currentNode != targetNode)
 				{
-					if (!this.IsValidPosition(startNode, currentNode.down)) return false;
+					if (!this.IsValidPosition(currentNode.down, targetNode)) return false;
 					currentNode = currentNode.down;
 				}
 			}
@@ -132,7 +132,7 @@ public class FindingPath : AbstractPathfinding
 			{
 				while (currentNode != targetNode)
 				{
-					if (!this.IsValidPosition(startNode, currentNode.right)) return false;
+					if (!this.IsValidPosition(currentNode.right, targetNode)) return false;
 					currentNode = currentNode.right;
 				}
 			}
@@ -140,7 +140,7 @@ public class FindingPath : AbstractPathfinding
 			{
 				while (currentNode != targetNode)
 				{
-					if (!this.IsValidPosition(startNode, currentNode.left)) return false;
+					if (!this.IsValidPosition(currentNode.left, targetNode)) return false;
 					currentNode = currentNode.left;
 				}
 			}
@@ -171,6 +171,7 @@ public class FindingPath : AbstractPathfinding
         lineRenderer.enabled = true;
         List<Vector3> listPoint = new List<Vector3>(); 
         Vector3 pos;
+        this.final = this.finalPath;
         foreach (Node node in this.finalPath)
         {
             pos = node.nodeObj.transform.position;
